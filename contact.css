@@ -139,7 +139,7 @@ header nav a:hover {
   line-height: 1.8;
 }
 
-/* CONTACT FORM */
+
 .contact {
   padding: 50px 20px;
   background: hsl(0, 0%, 100%);
@@ -159,7 +159,7 @@ header nav a:hover {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
-/* Form styling */
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -213,7 +213,7 @@ header nav a:hover {
   color: var(--dark);
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 768px) {
   header {
     flex-direction: column;
