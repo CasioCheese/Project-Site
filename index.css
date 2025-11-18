@@ -197,10 +197,10 @@ header nav a.active {
 }
 
 .opportunity-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns */
   gap: 30px;
+  margin: 0 50px;
 }
 
 .opportunity-card {
@@ -208,12 +208,38 @@ header nav a.active {
   border-radius: 14px;
   box-shadow: 0 2px 10px rgba(44,62,80,0.10);
   padding: 36px 28px 28px 28px;
-  min-width: 250px;
-  max-width: 340px;
   text-align: left;
   transition: transform 0.2s, box-shadow 0.2s;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.card-details {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 0.97rem;
+  color: var(--secondary);
+}
+
+.card-details .card-date,
+.card-details .card-place {
+  margin-top: 2px;
+}
+
+@media (max-width: 900px) {
+  .opportunity-list {
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+  }
+}
+@media (max-width: 600px) {
+  .opportunity-list {
+    grid-template-columns: 1fr; /* One column on mobile */
+  }
 }
 
 .opportunity-card h3 {
