@@ -1,15 +1,14 @@
-/* ===============================
-   Volunteer Hub - Main Stylesheet
-   =============================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* COLOR VARIABLES */
 :root {
-  --primary: #ff7b00;
-  --secondary: #2c3e50;
-  --accent: #ffcc00;
-  --light: #fdf9f2;
-  --dark: #1a1a1a;
+  --primary: #2D869C;
+  --secondary: #155263;
+  --accent: #51e2f5;
+  --light: #F6F9F8;
+  --dark: #232323;
   --font: 'Poppins', sans-serif;
+  --success: #4BC087;
+  --warning: #FFD166;
 }
 
 /* RESET */
@@ -53,6 +52,7 @@ header nav a {
   font-weight: 600;
   transition: 0.3s;
   position: relative;
+  font-size: 1.3rem;
 }
 header nav a::after {
   content: '';

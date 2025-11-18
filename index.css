@@ -1,11 +1,16 @@
 /* index.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 :root {
-  --primary: #ff7b00;
-  --secondary: #2c3e50;
-  --accent: #ffcc00;
-  --light: #fdf9f2;
-  --dark: #1a1a1a;
+  --primary: #2D869C;
+  --secondary: #155263;
+  --accent: #51e2f5;
+  --light: #F6F9F8;
+  --dark: #232323;
   --font: 'Poppins', sans-serif;
+  --success: #4BC087;
+  --warning: #FFD166;
 }
 
 /* RESET */
@@ -15,6 +20,7 @@
   box-sizing: border-box;
   font-family: var(--font);
 }
+
 body {
   background: var(--light);
   color: var(--secondary);
@@ -47,6 +53,7 @@ header nav a {
   font-weight: 600;
   transition: 0.3s;
   position: relative;
+  font-size: 1.3rem;
 }
 header nav a::after {
   content: '';
@@ -65,49 +72,30 @@ header nav a:hover {
   color: var(--dark);
   transform: scale(1.1);
 }
+header nav a.active {
+  color: var(--dark);
+  background: rgba(255, 255, 255, 0.3);
+  padding: 6px 12px;
+  border-radius: 8px;
+}
 
-/* HERO SLIDER */
+/* HERO */
 .hero {
   position: relative;
-  height: 400px;
+  height: 450px;
+  background: url('head-bg/v1.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
 }
-.slides {
-  display: flex;
-  width: 500%;
-  height: 100%;
-  animation: slide-five 20s infinite;
-}
-.slide {
-  width: 20%;
-  height: 100%;
-  flex-shrink: 0;
-}
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-@keyframes slide-five {
-  0%, 16% { transform: translateX(0%); }
-  20%, 36% { transform: translateX(-20%); }
-  40%, 56% { transform: translateX(-40%); }
-  60%, 76% { transform: translateX(-60%); }
-  80%, 100% { transform: translateX(-80%); }
-}
-
-/* HERO CONTENT */
 .hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom right, rgba(0,0,0,0.4), rgba(0,0,0,0.1));
 }
 .hero-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   text-align: center;
   color: #fff;
   max-width: 700px;
@@ -116,6 +104,7 @@ header nav a:hover {
 .hero-content h1 {
   font-size: 3rem;
   font-weight: 800;
+  margin-bottom: 20px;
   line-height: 1.2;
   text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
 }
@@ -124,11 +113,11 @@ header nav a:hover {
 }
 .hero-content p {
   font-size: 1.3rem;
+  margin-bottom: 25px;
   text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
-  margin-top: 15px;
 }
 
-/* INTRODUCTION */
+/* INTRO */
 .intro {
   background: #fff;
   padding: 80px 20px;
@@ -150,23 +139,179 @@ header nav a:hover {
   line-height: 1.8;
 }
 
+/* OPPORTUNITIES SECTION */
+.opportunities {
+  background: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.opportunities h2 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 35px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+}
+
+.opportunity-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.opportunity-card {
+  background: var(--light);
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(44,62,80,0.10);
+  padding: 36px 28px 28px 28px;
+  min-width: 250px;
+  max-width: 340px;
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.opportunity-card h3 {
+  font-size: 1.3rem;
+  color: var(--secondary);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.opportunity-card p {
+  font-size: 1rem;
+  color: var(--dark);
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+.opportunity-card .btn {
+  width: fit-content;
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 7px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.opportunity-card .btn:hover {
+  background: var(--accent);
+  color: var(--dark);
+}
+
+.opportunity-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(44,62,80,0.17);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .opportunity-list {
+    gap: 18px;
+  }
+  .opportunity-card {
+    max-width: 98%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .opportunity-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .opportunity-card {
+    width: 100%;
+    padding: 26px 15px;
+  }
+}
+
+.cta-banner {
+  width: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  color: #fff;
+  padding: 48px 16px 32px 16px;
+  text-align: center;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: 0 -4px 18px rgba(44,62,80,0.13);
+}
+
+.cta-banner h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.10);
+}
+
+.cta-banner p {
+  font-size: 1.13rem;
+  margin-bottom: 22px;
+  line-height: 1.5;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.08);
+}
+
+.cta-banner .btn {
+  background: #fff;
+  color: var(--primary);
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 12px 32px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 7px rgba(0,0,0,0.09);
+  transition: background 0.25s, color 0.25s, box-shadow 0.2s;
+  display: inline-block;
+}
+
+.cta-banner .btn:hover {
+  background: var(--dark);
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+}
+
+/* Responsive adjustments */
+@media (max-width: 650px) {
+  .cta-banner {
+    padding: 32px 8px 18px 8px;
+  }
+  .cta-banner h2 { font-size: 1.15rem; }
+  .cta-banner p { font-size: 0.97rem; }
+  .cta-banner .btn { padding: 9px 16px; font-size: 0.99rem; }
+}
+
+
 /* RESPONSIVE */
-@media(max-width: 1024px) {
-  header { padding: 15px 30px; }
-  .hero { height: 350px; }
-  .hero-content h1 { font-size: 2.5rem; }
-  .hero-content p { font-size: 1.1rem; }
-}
 @media(max-width: 768px) {
-  header { flex-direction: column; align-items: center; }
-  header nav { margin-top: 10px; }
-  header nav a { margin: 5px; }
-  .hero { height: 300px; }
-  .hero-content h1 { font-size: 2rem; }
-  .hero-content p { font-size: 1rem; }
-}
-@media(max-width: 480px) {
-  .hero { height: 250px; }
-  .hero-content h1 { font-size: 1.6rem; }
-  .hero-content p { font-size: 0.9rem; }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  header nav {
+    margin-top: 10px;
+  }
+  header nav a {
+    margin-left: 0;
+    margin-right: 20px;
+  }
+  .hero {
+    height: 300px;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .intro h2 {
+    font-size: 1.6rem;
+  }
+  .intro p {
+    font-size: 1rem;
+  }
 }
