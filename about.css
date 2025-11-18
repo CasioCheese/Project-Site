@@ -1,5 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* ===============================
+   Volunteer Hub - Main Stylesheet
+   =============================== */
 
+/* COLOR VARIABLES */
 :root {
   --primary: #2D869C;
   --secondary: #155263;
@@ -92,7 +95,6 @@ header nav a.active {
   display: flex;
   width: 500%;
   height: 100%;
-  animation: slide-five 20s infinite;
 }
 .slide {
   width: 20%;
@@ -100,10 +102,10 @@ header nav a.active {
   flex-shrink: 0;
 }
 .slide img {
-  width: 100%;
+  width: 110%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: -50px -430px;
 }
 @keyframes slide-five {
   0%, 16% { transform: translateX(0%); }
@@ -145,7 +147,7 @@ header nav a.active {
 }
 
 /* ===============================
-   INTRO / SECTIONS
+   INTRO SECTIONS
    =============================== */
 .intro {
   background: #fff;
@@ -169,6 +171,71 @@ header nav a.active {
 }
 
 /* ===============================
+   TEAM PROFILES
+   =============================== */
+.team-section {
+  background: var(--light);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.team-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: var(--primary);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.team-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.team-card {
+  width: 260px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.team-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.team-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+.team-card p {
+  font-size: 1rem;
+  color: var(--secondary);
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media(max-width: 480px) {
+  .team-card {
+    width: 90%;
+  }
+}
+
+/* ===============================
    FOOTER
    =============================== */
 footer {
@@ -183,7 +250,7 @@ footer p {
 }
 
 /* ===============================
-   RESPONSIVE DESIGN
+   RESPONSIVE RULES
    =============================== */
 @media(max-width: 1024px) {
   header { padding: 15px 30px; }
