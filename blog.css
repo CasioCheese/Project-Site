@@ -209,6 +209,20 @@ header nav a.active {
 }
 
 /***************************
+   FOOTER
+****************************/
+footer {
+  background: var(--secondary);
+  color: #fff;
+  text-align: center;
+  padding: 30px 0;
+}
+footer p {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/***************************
    RESPONSIVENESS
 ****************************/
 
