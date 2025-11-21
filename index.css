@@ -95,7 +95,7 @@ header nav a.active {
 ------------------------------------- */
 .hero {
   position: relative;
-  height: 450px;
+  height: 320px;
   overflow: hidden;
 }
 
@@ -114,7 +114,7 @@ header nav a.active {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: 0px -150px;
   border-top: 50px;
 }
 
