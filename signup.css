@@ -1,3 +1,6 @@
+.signup-container input[name="repassword"] {
+  margin-top: 2px;
+}
 body {
   background: var(--light);
   min-height: 100vh;
