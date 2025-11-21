@@ -207,7 +207,9 @@ header nav a.active {
   background: var(--light);
   border-radius: 14px;
   box-shadow: 0 2px 10px rgba(44,62,80,0.10);
-  padding: 36px 28px 28px 28px;
+  /* Added extra right padding to prevent content from overlapping with card-details */
+  /* Increased bottom padding to prevent overlap with button and card details */
+  padding: 36px 60px 64px 28px;
   text-align: left;
   transition: transform 0.2s, box-shadow 0.2s;
   display: flex;
@@ -224,6 +226,9 @@ header nav a.active {
   align-items: flex-end;
   font-size: 0.97rem;
   color: var(--secondary);
+  max-width: 40%; /* Prevents card-details from stretching too wide */
+  word-break: break-word;
+  text-align: right; /* Ensures text is right-aligned */
 }
 
 .card-details .card-date,
@@ -265,6 +270,10 @@ header nav a.active {
   font-weight: 600;
   text-decoration: none;
   transition: background 0.2s;
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  margin: 0;
 }
 
 .opportunity-card .btn:hover {
@@ -347,7 +356,9 @@ header nav a.active {
   }
   .opportunity-card {
     width: 100%;
-    padding: 26px 15px;
+    /* Increased bottom, left, and right padding for mobile to prevent overlap with button and card details */
+    padding: 26px 32px 64px 32px;
+    box-sizing: border-box;
   }
 }
 
