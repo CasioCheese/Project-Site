@@ -54,6 +54,11 @@ header .logo {
   text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
 }
 
+header .logo a {
+  text-decoration: none;
+  color: #fff;
+}
+
 header nav a {
   color: #fff;
   text-decoration: none;
@@ -332,6 +337,20 @@ header nav a.active {
   background: var(--dark);
   color: #fff;
   box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+}
+
+/* -------------------------------------
+   FOOTER
+------------------------------------- */
+footer {
+  background: var(--secondary);
+  color: #fff;
+  text-align: center;
+  padding: 30px 0;
+}
+footer p {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
 }
 
 /* -------------------------------------
