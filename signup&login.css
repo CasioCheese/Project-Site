@@ -121,9 +121,15 @@ body {
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .auth-wrapper {
-    padding: 30px 16px;
+    padding: 40px 30px;
+  }
+}
+
+@media (max-width: 900px) {
+  .auth-wrapper {
+    padding: 30px 20px;
   }
 
   .auth-card {
@@ -164,9 +170,9 @@ body {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .auth-wrapper {
-    padding: 20px 12px;
+    padding: 20px 16px;
   }
 
   .auth-card {
