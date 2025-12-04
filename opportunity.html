@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="index.css">
+  <title>Opportunity Details</title>
+</head>
+<body>
+  <header>
+    <div class="logo"><a href="index.html">Volunteer Hub</a></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="opportunity-detail">
+    <div class="container">
+      <div id="op-hero" class="hero" style="margin-bottom:24px;">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1 id="op-title">Opportunity Title</h1>
+          <p id="op-subtitle">Category • Difficulty</p>
+        </div>
+        <div id="op-copyright" class="hero-copyright"></div>
+      </div>
+
+      <article class="op-body">
+        <h2>Description</h2>
+        <p id="op-desc">Loading...</p>
+
+        <h3>Details</h3>
+        <ul id="op-details"></ul>
+
+        <h3>Requirements</h3>
+        <ul id="op-reqs"></ul>
+
+        <h3>How to Prepare</h3>
+        <p id="op-prepare"></p>
+
+        <h3>Contact</h3>
+        <div id="op-contact"></div>
+
+        <h3>FAQ</h3>
+        <ul id="op-faq"></ul>
+
+        <div class="op-metrics" id="op-metrics"></div>
+
+        <div class="op-actions" style="margin-top:20px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a id="signup-btn" class="btn btn-primary">Sign Up</a>
+          <a id="login-btn" class="btn btn-outline">Log In</a>
+          <a id="back-btn" class="btn btn-ghost">Back</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Volunteer Hub</p>
+  </footer>
+
+  <script>
+    // Data map for opportunities (same content as index cards)
+    const OPPORTUNITIES = {
+      "env-cleanup": {
+        id: 'env-cleanup',
+        title: 'Environmental Clean-up Drive',
+        category: 'Environment',
+        difficulty: 'Beginner',
+        hero: 'header-bg/pic1.jpg',
+        desc: 'Help maintain local parks and riverbanks. Join our clean-up event and make an immediate environmental impact!',
+        date: 'Saturday, 6 AM',
+        location: 'Capitol Grounds',
+        spots: '15/20',
+        time: '4 hours',
+        impact: 'Will remove ~2 tons of waste',
+        requirements: ['Wear closed-toe shoes', 'Bring water bottle', 'Work gloves recommended'],
+        prepare: 'Wear comfortable outdoor clothing, sunscreen, and bring a filled water bottle. We will provide gloves and trash bags, but you may bring your own gloves if preferred.',
+        contact: {name: 'Clean-up Lead', email: 'volunteerhub.team67@gmail.com', phone: '+63 912 345 6789'},
+        copyright: 'Image © Unsplash',
+        faq: [
+          {q: 'Is prior experience required?', a: 'No — this is suitable for beginners and families.'},
+          {q: 'Can kids participate?', a: 'Yes, with adult supervision.'}
+        ]
+      },
+      "tutoring": {
+        id: 'tutoring',
+        title: 'Tutoring Program',
+        category: 'Education',
+        difficulty: 'Intermediate',
+        hero: 'header-bg/4.jpg',
+        desc: 'Support students in underserved communities with academic guidance, mentoring, and building confidence in learning.',
+        date: 'Friday, 1 PM',
+        location: 'MCCS Elementary School',
+        spots: '8/12',
+        time: '2-3 hrs/week',
+        impact: 'Will help ~5 students',
+        requirements: ['Background check preferred', 'Comfortable with tutoring basics', 'TB clearance if required by school'],
+        prepare: 'Bring educational materials if you have them; we will provide lesson plans and training. Be patient and flexible with students of varying levels.',
+        contact: {name: 'Program Coordinator', email: 'volunteerhub.team67@gmail.com', phone: '+63 987 654 3210'},
+        copyright: 'Image © TuteZone',
+        faq: [
+          {q: 'Do I need to be a teacher?', a: 'No — volunteers receive basic training and lesson plans.'},
+          {q: 'How long is the commitment?', a: 'Typically 2-3 hours per week for at least one school term.'}
+        ]
+      },
+      "food-distribution": {
+        id: 'food-distribution',
+        title: 'Food Distribution Event',
+        category: 'Community Care',
+        difficulty: 'Beginner',
+        hero: 'header-bg/5.jpg',
+        desc: 'Distribute groceries and essential items to families in need. Be the hands and heart of our community support.',
+        date: 'Monday, 6 AM',
+        location: 'Freedom Park',
+        spots: '25/30',
+        time: '3 hours',
+        impact: 'Will help ~50 families',
+        requirements: ['Comfortable shoes', 'Mask recommended', 'Basic lifting ability'],
+        prepare: 'Arrive 15 minutes early for orientation. Bring water and wear comfortable shoes. We will provide gloves and safety vests.',
+        contact: {name: 'Logistics Lead', email: 'volunteerhub.team67@gmail.com', phone: '+63 900 111 2222'},
+        copyright: 'Image © PIA.GOV',
+        faq: [
+          {q: 'Is food provided for volunteers?', a: 'Light refreshments are typically available.'},
+          {q: 'Can I bring my own vehicle?', a: 'Please notify logistics if you plan to help transport items.'}
+        ]
+      },
+      "senior-outreach": {
+        id: 'senior-outreach',
+        title: 'Senior Outreach Program',
+        category: 'Community Care',
+        difficulty: 'Beginner',
+        hero: 'header-bg/6.jpg',
+        desc: 'Offer companionship, assistance with errands, and meaningful connections with seniors in care facilities.',
+        date: 'Sunday, 1 PM',
+        location: 'DSWD Care Center',
+        spots: '10/10',
+        time: '2 hrs/week',
+        impact: 'Will support ~3 seniors per volunteer',
+        requirements: ['Background check', 'Respectful demeanor', 'Vaccination recommended'],
+        prepare: 'Be prepared to engage in conversation, play simple games, or help with light errands. Bring a small gift or activity if you like.',
+        contact: {name: 'Outreach Coordinator', email: 'volunteerhub.team67@gmail.com', phone: '+63 922 333 4444'},
+        copyright: 'Image © BukSU',
+        faq: [
+          {q: 'Do I need training?', a: 'We provide a short orientation session before visits.'},
+          {q: 'What if I can only visit occasionally?', a: 'We welcome occasional volunteers; let the coordinator know your availability.'}
+        ]
+      },
+      "health-fair": {
+        id: 'health-fair',
+        title: 'Health & Wellness Fair',
+        category: 'Health & Wellness',
+        difficulty: 'Intermediate',
+        hero: 'header-bg/7.png',
+        desc: 'Assist with event logistics, health screenings, and community education on wellness and preventive care.',
+        date: 'Tuesday, 6 AM',
+        location: 'Malaybalay City Health Center',
+        spots: '12/18',
+        time: '5 hours',
+        impact: 'Will reach ~200 community members',
+        requirements: ['Medical volunteers welcome', 'ID required for staff access'],
+        prepare: 'Bring any certifications if you are volunteering in a medical capacity. Dress professionally and bring water.',
+        contact: {name: 'Health Program Lead', email: 'volunteerhub.team67@gmail.com', phone: '+63 933 555 6666'},
+        copyright: 'Image © PNA',
+        faq: [
+          {q: 'Can non-medical volunteers help?', a: 'Yes — we need volunteers for logistics, registration and crowd control.'},
+          {q: 'Is prior training required?', a: 'Medical volunteers should bring proof of qualifications.'}
+        ]
+      },
+      "community-gardening": {
+        id: 'community-gardening',
+        title: 'Community Gardening Project',
+        category: 'Environment',
+        difficulty: 'Beginner',
+        hero: 'header-bg/8.jpg',
+        desc: 'Plant trees and flowers, build raised garden beds, and create green spaces for your community to enjoy.',
+        date: 'Saturday, 1 PM',
+        location: 'City Park',
+        spots: '20/25',
+        time: '3-4 hours',
+        impact: 'Will plant ~100 trees',
+        requirements: ['Gardening gloves suggested', 'Kneepads optional', 'Sun protection'],
+        prepare: 'Wear sturdy shoes and bring a hat. We provide tools and gloves but feel free to bring your own.',
+        contact: {name: 'Gardening Lead', email: 'volunteerhub.team67@gmail.com', phone: '+63 944 777 8888'},
+        copyright: 'Image © BukSU-NSTP',
+        faq: [
+          {q: 'Do I need gardening experience?', a: 'No — volunteers of all experience levels are welcome.'},
+          {q: 'Will tools be provided?', a: 'Yes, basic tools and gloves are provided.'}
+        ]
+      }
+    };
+
+    function qs(name) {
+      return new URLSearchParams(location.search).get(name);
+    }
+
+    const id = qs('id');
+    const data = OPPORTUNITIES[id];
+    if (!data) {
+      document.getElementById('op-title').textContent = 'Opportunity not found';
+      document.getElementById('op-desc').textContent = 'We could not find that opportunity. Please return to the homepage and try another listing.';
+    } else {
+      // populate
+      document.getElementById('op-title').textContent = data.title;
+      document.getElementById('op-subtitle').textContent = data.category + ' • ' + data.difficulty;
+      document.getElementById('op-desc').textContent = data.desc;
+
+      const details = document.getElementById('op-details');
+      details.innerHTML = '';
+      const items = [
+        ['Date', data.date],
+        ['Location', data.location],
+        ['Spots', data.spots],
+        ['Time Commitment', data.time]
+      ];
+      items.forEach(i => {
+        const li = document.createElement('li');
+        li.textContent = i[0] + ': ' + i[1];
+        details.appendChild(li);
+      });
+
+      const metricsEl = document.getElementById('op-metrics');
+      metricsEl.innerHTML = '<strong>Impact:</strong> ' + data.impact;
+
+      // Requirements
+      const reqsEl = document.getElementById('op-reqs');
+      reqsEl.innerHTML = '';
+      if (data.requirements && data.requirements.length) {
+        data.requirements.forEach(r => {
+          const li = document.createElement('li');
+          li.textContent = r;
+          reqsEl.appendChild(li);
+        });
+      } else {
+        reqsEl.innerHTML = '<li>None specified</li>';
+      }
+
+      // How to prepare
+      document.getElementById('op-prepare').textContent = data.prepare || 'No preparation details provided.';
+
+      // Contact info
+      const contactEl = document.getElementById('op-contact');
+      contactEl.innerHTML = '';
+      if (data.contact) {
+        const name = document.createElement('div');
+        name.innerHTML = '<strong>' + (data.contact.name || '') + '</strong>';
+        const email = document.createElement('div');
+        if (data.contact.email) email.innerHTML = '<a href="mailto:' + data.contact.email + '">' + data.contact.email + '</a>';
+        const phone = document.createElement('div');
+        if (data.contact.phone) phone.textContent = data.contact.phone;
+        contactEl.appendChild(name);
+        if (email.innerHTML) contactEl.appendChild(email);
+        if (phone.textContent) contactEl.appendChild(phone);
+      } else {
+        contactEl.textContent = 'No contact provided.';
+      }
+
+      // FAQ
+      const faqEl = document.getElementById('op-faq');
+      faqEl.innerHTML = '';
+      if (data.faq && data.faq.length) {
+        data.faq.forEach(f => {
+          const li = document.createElement('li');
+          li.innerHTML = '<strong>' + f.q + '</strong><br>' + f.a;
+          faqEl.appendChild(li);
+        });
+      } else {
+        faqEl.innerHTML = '<li>No FAQs available for this opportunity.</li>';
+      }
+
+      // set hero image
+      const hero = document.getElementById('op-hero');
+      hero.style.backgroundImage = 'url("' + data.hero + '")';
+
+      // set copyright text
+      const copyrightEl = document.getElementById('op-copyright');
+      copyrightEl.textContent = data.copyright || 'Image credit: Stock photo';
+
+      // wire signup/login buttons
+      const ref = encodeURIComponent(location.pathname + location.search);
+      document.getElementById('signup-btn').setAttribute('href', 'signup.html?ref=' + ref);
+      document.getElementById('login-btn').setAttribute('href', 'login.html?ref=' + ref);
+    }
+
+    document.getElementById('back-btn').addEventListener('click', function(e){
+      e.preventDefault();
+      history.back();
+    });
+  </script>
+</body>
+</html>
