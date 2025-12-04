@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="forum.css">
+  <title>Volunteer Hub Forum</title>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo"><a href="index.html">Volunteer Hub</a></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="forum.html" class="active">Forum</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO / BANNER -->
+  <section class="hero">
+    <div class="slides">
+      <div class="slide"><img src="1.jpg" alt="Volunteer Image"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Share Your <span class="highlight">Volunteer Experiences</span></h1>
+      <p>Connect with others, inspire change, and celebrate community engagement.</p>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="intro-content">
+      <h2>Volunteer Forum</h2>
+      <p>Write about your experiences volunteering and read inspiring stories from other community members.</p>
+    </div>
+  </section>
+
+  <!-- FORUM FORM -->
+  <section class="forum-section">
+    <div class="forum-container">
+      <h2>Share Your Experience</h2>
+      <form id="experienceForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="text" id="activity" placeholder="Activity/Program" required>
+        <input type="date" id="date" required>
+        <textarea id="story" placeholder="Your story..." rows="5" required></textarea>
+        <button type="submit" class="btn">Post</button>
+      </form>
+    </div>
+
+    <div class="posts-container" id="postsContainer">
+      <!-- Dummy posts -->
+      <div class="post">
+        <h3>Community Clean-Up Drive</h3>
+        <div class="meta">By <strong>Anna Cruz</strong> on 2025-11-10</div>
+        <p>I had an amazing time cleaning up the riverbanks. It felt great contributing to a cleaner environment!</p>
+      </div>
+      <div class="post">
+        <h3>Food Distribution Event</h3>
+        <div class="meta">By <strong>Mark Santos</strong> on 2025-11-12</div>
+        <p>Helping families in need was such a rewarding experience. The smiles made it all worthwhile!</p>
+      </div>
+      <div class="post">
+        <h3>Senior Outreach</h3>
+        <div class="meta">By <strong>Liza Dela Cruz</strong> on 2025-11-14</div>
+        <p>Visiting seniors and hearing their stories was heartwarming. I learned so much from them!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Volunteer Hub. All rights reserved.</p>
+  </footer>
+
+  <script src="forum.js"></script>
+</body>
+</html>
